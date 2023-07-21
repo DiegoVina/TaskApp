@@ -59,7 +59,7 @@ const TaskComponent = ({task, complete, remove}) => {
     }
 
     return (
-        <tr className='fw-normal'>
+        <tr className={task.completed ? 'task-completed': 'task-pending' }>
             <th>
                 <span className='ms-2'>{task.name}</span>
             </th>
@@ -73,7 +73,6 @@ const TaskComponent = ({task, complete, remove}) => {
             <td>
             {/*Execution of function that returns icon depending on completion*/}
                 {taskCompletedIcon()}
-            {/*TODO: Make functional buttons for deleting and swithcing task state*/}
                 <i className='bi-trash task-action' style={{color: "tomato"}} onClick={() => remove(task)}></i>
             </td>
         </tr>
